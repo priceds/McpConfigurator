@@ -1,0 +1,431 @@
+:root {
+  font-family: "Manrope", "Avenir Next", "Segoe UI Variable", sans-serif;
+  color: #f3f7ff;
+  background:
+    radial-gradient(circle at top left, rgba(68, 156, 255, 0.42), transparent 28%),
+    radial-gradient(circle at top right, rgba(32, 231, 195, 0.25), transparent 24%),
+    linear-gradient(140deg, #071019 0%, #0b1627 48%, #132238 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid rgba(196, 225, 255, 0.16);
+  background: rgba(5, 12, 24, 0.42);
+  color: #f6faff;
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+  outline: none;
+  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: rgba(108, 188, 255, 0.72);
+  background: rgba(10, 18, 32, 0.65);
+  transform: translateY(-1px);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.5rem;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.glass-panel,
+.glass-inset {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(28px) saturate(170%);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glass-panel::before,
+.glass-inset::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 35%, transparent 65%, rgba(255, 255, 255, 0.05));
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.6rem;
+  border-radius: 32px;
+}
+
+.sidebar h1,
+.hero h2,
+.section-card h3 {
+  font-family: "Clash Display", "Satoshi", "Avenir Next", sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #90d1ff;
+  font-size: 0.72rem;
+}
+
+.lede,
+.muted,
+.note-list li,
+.step-list li,
+.sidebar-footer p {
+  color: rgba(225, 236, 255, 0.74);
+}
+
+.nav-stack {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.75rem 0 auto;
+}
+
+.nav-button,
+.pill-button,
+.primary-button,
+.secondary-button,
+.danger-button {
+  border-radius: 18px;
+  padding: 0.92rem 1rem;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.nav-button {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e8f4ff;
+}
+
+.nav-button.active,
+.nav-button:hover,
+.pill-button:hover,
+.primary-button:hover,
+.secondary-button:hover,
+.danger-button:hover {
+  transform: translateY(-1px);
+}
+
+.nav-button.active {
+  background: linear-gradient(135deg, rgba(105, 183, 255, 0.25), rgba(22, 247, 209, 0.16));
+  box-shadow: 0 18px 40px rgba(21, 90, 130, 0.24);
+}
+
+.sidebar-footer {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 24px;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  margin-top: 0.35rem;
+  border-radius: 999px;
+  background: #2ce6a3;
+  box-shadow: 0 0 18px rgba(44, 230, 163, 0.8);
+}
+
+.content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero,
+.section-card {
+  border-radius: 30px;
+  padding: 1.4rem;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.stat-card {
+  min-width: 160px;
+  padding: 1rem;
+  border-radius: 24px;
+}
+
+.stat-card span {
+  display: block;
+  color: rgba(223, 239, 255, 0.72);
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 2rem;
+}
+
+.dashboard-grid,
+.wizard-grid,
+.manage-grid,
+.settings-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.dashboard-grid {
+  grid-template-columns: 1.4fr 1fr;
+}
+
+.wizard-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.target-grid,
+.target-selection,
+.result-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.target-card,
+.target-editor {
+  padding: 1rem;
+  border-radius: 24px;
+}
+
+.target-toggle,
+.checkbox-row,
+.action-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.checkbox-row input {
+  width: auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-grid label {
+  display: grid;
+  gap: 0.45rem;
+  color: rgba(238, 245, 255, 0.92);
+}
+
+.full-span {
+  grid-column: 1 / -1;
+}
+
+.action-row {
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.pill-button,
+.secondary-button {
+  background: rgba(255, 255, 255, 0.09);
+  color: #eff6ff;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #7fd0ff, #2bd4be);
+  color: #04111f;
+  font-weight: 700;
+}
+
+.primary-button.accent {
+  background: linear-gradient(135deg, #ffe57f, #ff8f5a);
+}
+
+.danger-button {
+  background: rgba(255, 99, 132, 0.14);
+  color: #ffd5df;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+}
+
+.badge.success {
+  background: rgba(61, 233, 169, 0.14);
+  color: #8ff3cb;
+}
+
+.badge.warning {
+  background: rgba(255, 198, 88, 0.16);
+  color: #ffd683;
+}
+
+.badge.info {
+  background: rgba(122, 188, 255, 0.18);
+  color: #b9ddff;
+}
+
+.step-list,
+.note-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.result-card,
+.empty-state {
+  border-radius: 22px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.result-card.error {
+  border: 1px solid rgba(255, 113, 138, 0.4);
+}
+
+.result-card.warning {
+  border: 1px solid rgba(255, 204, 92, 0.4);
+}
+
+.result-card.info {
+  border: 1px solid rgba(119, 202, 255, 0.32);
+}
+
+.diff-viewer,
+.mini-preview {
+  margin: 0;
+  padding: 1rem;
+  border-radius: 24px;
+  background: rgba(2, 8, 18, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #c7f0ff;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: "IBM Plex Mono", "SF Mono", monospace;
+}
+
+.manage-grid,
+.settings-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 1180px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .wizard-grid,
+  .dashboard-grid,
+  .manage-grid,
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stat-row {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .glass-panel,
+  .glass-inset,
+  .stat-card,
+  .nav-button {
+    animation: rise-in 520ms ease both;
+  }
+
+  .wizard-grid > *,
+  .dashboard-grid > *,
+  .manage-grid > *,
+  .settings-grid > * {
+    animation: rise-in 620ms ease both;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
