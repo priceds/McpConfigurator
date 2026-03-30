@@ -2,6 +2,8 @@
 
 Electron + React desktop app for configuring already-installed MCP servers for Claude Desktop and Gemini CLI.
 
+![MCP Configurator overview](./assets/readme-screenshot.png)
+
 ## Highlights
 
 - Detects Claude Desktop and Gemini CLI config locations
