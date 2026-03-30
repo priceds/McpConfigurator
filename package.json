@@ -4,6 +4,7 @@
   "description": "Cross-platform Electron + React app for configuring MCP servers for Claude Desktop and Gemini CLI.",
   "private": true,
   "license": "MIT",
+  "author": "priceds <amsarvesh@live.com>",
   "main": "dist-electron/main/electron-main.js",
   "scripts": {
     "dev": "concurrently -k \"npm:dev:renderer\" \"npm:dev:main\" \"npm:dev:electron\"",
