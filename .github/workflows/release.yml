@@ -17,28 +17,28 @@ jobs:
       matrix:
         include:
           - os: macos-latest
-            label: macOS
+            label: macOS arm64
             artifact_name: release-macos
             package_script: npm run package:mac
             artifact_glob: |
-              release/*.dmg
+              release/*-arm64.dmg
               release/*.blockmap
               release/latest-mac.yml
           - os: windows-latest
-            label: Windows
+            label: Windows x64
             artifact_name: release-windows
             package_script: npm run package:win
             artifact_glob: |
-              release/*.exe
+              release/*-x64.exe
               release/*.blockmap
               release/latest.yml
           - os: ubuntu-latest
-            label: Linux
+            label: Linux x64
             artifact_name: release-linux
             package_script: npm run package:linux
             artifact_glob: |
-              release/*.AppImage
-              release/*.deb
+              release/*-x64.AppImage
+              release/*_amd64.deb
               release/latest-linux.yml
 
     steps:
